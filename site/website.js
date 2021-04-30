@@ -74,34 +74,7 @@ function recalculateServiceTime() {
   var totalExectuteTime = 0;
 
   var algorithm = $('input[name=algorithm]:checked', '#algorithm').val();
-  if (algorithm == "fcfs") {
-    $.each(inputTable, function (key, value) {
-      if (key == 0) return true;
-      $(value.children[3]).text(totalExectuteTime);
-
-      var executeTime = parseInt($(value.children[2]).children().first().val());
-      totalExectuteTime += executeTime;
-    });
-  }
-  else if (algorithm == "sjf") {
-    var exectuteTimes = [];
-    $.each(inputTable, function (key, value) {
-      if (key == 0) return true;
-      exectuteTimes[key - 1] = parseInt($(value.children[2]).children().first().val());
-    });
-
-    var currentIndex = -1;
-    for (var i = 0; i < exectuteTimes.length; i++) {
-      currentIndex = findNextIndex(currentIndex, exectuteTimes);
-
-      if (currentIndex == -1) return;
-
-      $(inputTable[currentIndex + 1].children[3]).text(totalExectuteTime);
-
-      totalExectuteTime += exectuteTimes[currentIndex];
-    }
-  }
-  else if (algorithm == "priority") {
+  if (algorithm == "priority") {
     var exectuteTimes = [];
     var priorities = [];
 
@@ -257,49 +230,7 @@ function draw() {
   var td = '';
 
   var algorithm = $('input[name=algorithm]:checked', '#algorithm').val();
-  if (algorithm == "fcfs") {
-    $.each(inputTable, function (key, value) {
-      if (key == 0) return true;
-      var executeTime = parseInt($(value.children[2]).children().first().val());
-      th += '<th style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + (key - 1) + '</th>';
-      td += '<td>' + executeTime + '</td>';
-    });
-
-    $('fresh').html('<table id="resultTable"><tr>'
-                    + th
-                    + '</tr><tr>'
-                    + td
-                    + '</tr></table>'
-                   );
-  }
-  else if (algorithm == "sjf") {
-    var executeTimes = [];
-
-    $.each(inputTable, function (key, value) {
-      if (key == 0) return true;
-      var executeTime = parseInt($(value.children[2]).children().first().val());
-      executeTimes[key - 1] = { "executeTime": executeTime, "P": key - 1 };
-    });
-
-    executeTimes.sort(function (a, b) {
-      if (a.executeTime == b.executeTime)
-        return a.P - b.P;
-      return a.executeTime - b.executeTime
-    });
-
-    $.each(executeTimes, function (key, value) {
-      th += '<th style="height: 60px; width: ' + value.executeTime * 20 + 'px;">P' + value.P + '</th>';
-      td += '<td>' + value.executeTime + '</td>';
-    });
-
-    $('fresh').html('<table id="resultTable"><tr>'
-                    + th
-                    + '</tr><tr>'
-                    + td
-                    + '</tr></table>'
-                   );
-  }
-  else if (algorithm == "priority") {
+  if (algorithm == "priority") {
     var executeTimes = [];
 
     $.each(inputTable, function (key, value) {
