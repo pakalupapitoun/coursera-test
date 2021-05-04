@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+    <title>ROUND ROBIN/PRIORITY SCHEDULING</title>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="website.js"></script>
+    <style>
+                fresh th {
+            background: linear-gradient(WhiteSmoke, lightgray);
+            text-align: left;
+            border: 1px solid black;
+            height: 400 px;
+        }
+        fresh td {
+            border: 1px solid black;
+            border-bottom: 0;
+            /*border-right: 0;*/
+            height: 20px;
+            text-align: left;
+        }
+
+        div th, div td {
+            border: 1px solid black;
+            text-align: center;
+        }
+        table {
+            display: inline;
+            border-collapse: collapse;
+        }
+        input {
+            text-align: center;
+        }
+        #curtain {
+          background-color: white;
+        }
+    </style>
+
+<div>
+  <div>
+    Algorithm:
+    <form id="algorithm">
+      <input type="radio" name="algorithm" value="priority"/> Priority scheduling<br/>
+      <input type="radio" name="algorithm" value="robin"/> Round Robin
+    </form>
+    <br>
+  </div>
+    <table id="inputTable">
+        <tr>
+            <th>Process</th>
+            <th>Arrival Time</th>
+            <th>Execute Time</th>
+            <th class="servtime">Service Time</th>
+            <th class="priority-only">Priority</th>
+            <th class="completiontime">completion time</th>
+            <th class="turnaroundtime">T.A.T</th>
+        </tr>
+        <tr>
+            <td>P0</td>
+            <td>0</td>
+            <td><input class="initial exectime" type="text" value="5" /></td>
+            <td class="servtime"></td>
+            <td class="priority-only initial"><input type="text" value ="2"/></td>
+            <td class="completiontime"></td>
+            <td class="turnaroundtime"></td>
+        </tr>
+        <tr>
+            <td>P1</td>
+            <td>1</td>
+            <td><input class="initial exectime" value="3" /></td>
+            <td class="servtime"></td>
+            <td class="priority-only" ><input type="text" value="1"/></td>
+            <td class="completiontime"></td>
+            <td class="turnaroundtime"></td>
+        </tr>
+    </table>
+    <input id="minus" style="display: inline; left: 428px; position: absolute; top: 170px;" type="button" value="-" onclick="deleteRow();" />
+    </div>
+    <input type="button" value="+" onclick="addRow();" />
+<div>
+  </div>    
+    <p id="quantumParagraph" hidden>Quantum: 
+        <input style="width: 50px;" id="quantum" type="text" value="3" />
+    </p>
+    <input type="button" value="Go" onclick="draw();" />
+    <br/><br/>
+
+    <fresh>
+    </fresh>
+    <p>
+    Timer: <strong id="timer"></strong> sec
+    </p>
+</body>
+</html>
