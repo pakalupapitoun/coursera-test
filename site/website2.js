@@ -330,7 +330,7 @@ function animate()
   
   animationStep(sum, 0);
 
-  jQuery('#curtain').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
+  //jQuery('#curtain').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
 }
 
 function animationStep(steps, cur) 
