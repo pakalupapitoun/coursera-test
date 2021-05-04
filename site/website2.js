@@ -181,10 +181,18 @@ function recalculateServiceTime()
           exectuteTimes[j] -= quantum;
           areWeThereYet = false;
         }
-
       }
     }
-    
+    var c=[];
+    for(i=0;i<exectuteTimes.length;i++)
+    {
+      c[i]=0;
+      for(j=completiontime[i];j!=0;)
+      {
+        c[i]=c[i]+j%10;
+        j=parseInt(j/10);
+      }
+    }
     var turnaroundtime=[];
     for(i=0;i<exectuteTimes.length;i++)
     {
