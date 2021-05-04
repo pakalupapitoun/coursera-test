@@ -314,11 +314,7 @@ function findNextIndex(currentIndex, array)
 
 function animate() 
 {
-  /*$('fresh').prepend('<div id="curtain" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
-  
-  $('#curtain').width($('#resultTable').width());
-  $('#curtain').css({left: $('#resultTable').position().left});
-  */
+ 
   var sum = 0;
   $('.exectime').each(function() 
   {
@@ -330,7 +326,7 @@ function animate()
   
   animationStep(sum, 0);
 
-  //jQuery('#curtain').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
+  
 }
 
 function animationStep(steps, cur) 
