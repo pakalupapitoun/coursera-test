@@ -105,7 +105,7 @@ function recalculateServiceTime() {
 }
 
 function findNextIndexWithPriority(currentIndex, priorities) {
-  var currentPriority = 1000000;
+  var currentPriority = 100000;
   if (currentIndex != -1) currentPriority = priorities[currentIndex];
   var resultPriority = 0;
   var resultIndex = -1;
