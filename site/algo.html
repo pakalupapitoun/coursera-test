@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Searching Algorithms</title>
+	<link href="style.css" rel="stylesheet" type="text/css"/>
+	<script src="algo.js"></script>
+
+</head>
+<body onload="updatearray(10)">
+	<nav>
+		<label class="logo">Searching algorithms</label>
+		<span>1</span>
+		<input type="range"value="10" min="1" max="100" step="1" id="range" onchange="updatearray(this.value)">
+		<span>100</span>
+		<input type="text" id="search" name="number"class="ip" placeholder="Enter number to search">
+		<ul>
+			<li class="dropdown"><a href="#">select Algorithm ⏬</a>
+				<ul>
+					<li class="dropdown-1"><a href="#" onclick="linearsearch()">Linear search</a></li>
+					<li class="dropdown-1"><a href="#">binary search</a></li>
+				</ul>
+
+			</li>
+		</ul>
+	</nav>
+	
+</body>
+</html>	
