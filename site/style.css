@@ -20,6 +20,10 @@ label.logo{
 	padding: 0 100px;
 	font-weight: bold;
 }
+.dropdown{
+	background: #0082e6;
+	height: 80px;
+}
 nav ul{
 	float: right;
 }
@@ -53,6 +57,7 @@ div{
 	border: 3px solid green;	
 	margin: 20px;
 	float: left;
+	display: block;
 }
 .ap{
 	width: 40px;
@@ -63,9 +68,4 @@ div{
 span{
 	color: white;
 }
-.working{
-	background-color: blue;
-}
-.notworking{
-	background-color: solid green;
-}
+

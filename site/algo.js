@@ -23,23 +23,82 @@ function removeall(){
 	}
 	return;
 }
-function sleep(val)
+function declor()
 {
-	const date=Date.now();
-	let currentDate=null;
-	do{
-		currentDate=Date.now();
-	}while(currentDate-date<val);
+	var range=document.getElementById("range").value;
+	var arr=document.getElementsByClassName("ap");
+	for(let i=0;i<range;i++)
+	{
+		arr[i].style.background="white";
+	}
 }
 function linearsearch()
 {
+	declor();
+	var number=document.getElementById("search").value;
+	var range=document.getElementById("range").value;
+	var arr=document.getElementsByClassName("ap");
+	for(let i=0;i<range;i++)
+	{
+		setTimeout(()=>{arr[i].style.background="green";setTimeout(()=>{arr[i].style.background="white"; if(arr[i].value==number) arr[i].style.background="green";},i*1)},i*100);
+		if(arr[i].value==number)
+		{
+			break;
+		}
+		if(i==range-1)
+		{
+			setTimeout(()=>{window.alert("Not Found");},i*100);
+		}		
+	}	
+
+}
+
+function binarysearch()
+{
+	declor();
 	var number=document.getElementById("search").value;
 	var range=document.getElementById("range").value;
 	var arr=document.getElementsByClassName("ap");
 	for(var i=0;i<range;i++)
 	{
-		sleep(100);
-		arr[i].style.background="green";	
-	}	
-
+		for(var j=0;j<range;j++)
+		{
+			if(parseInt(arr[j].value)>parseInt(arr[i].value))
+			{
+				var temp=arr[j].value;
+				arr[j].value=arr[i].value;
+				arr[i].value=temp;
+			}
+		}
+	}
+	for(let i=0;i<range;i++)
+	{
+		arr[i].innerHtml=arr[i];
+	}
+	var l=0;
+	var h=parseInt(range-1);
+	let count=1;
+	while(l<=h)
+	{
+		let m=parseInt((l+h)/2);
+		setTimeout(()=>{arr[m].style.background="green"; setTimeout(()=>{arr[m].style.background="white"; if(arr[m].value==number) arr[m].style.background="green";},count*100)},count*1000);
+		count++;
+		if(parseInt(number)<parseInt(arr[m].value))
+		{
+			h=m-1;
+		}
+		else if(parseInt(number)>parseInt(arr[m].value))
+		{
+			l=m+1;
+		}
+		else
+		{
+			break;
+		}
+		if(l>h)
+		{
+			setTimeout(()=>{window.alert("Not Found");},count*1000);
+			break;
+		}
+	}
 }
