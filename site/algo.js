@@ -1,4 +1,5 @@
-function updatearray(val){
+function updatearray(val)
+{
 	removeall();
 	var x=val;
 	for(var i=0;i<x;i++)
@@ -15,9 +16,11 @@ function updatearray(val){
 		document.body.appendChild(tag);
 	}
 }
-function removeall(){
+function removeall()
+{
 	var a=document.getElementById("arr");
-	while(a!=null){
+	while(a!=null)
+	{
 		document.body.removeChild(a);
 		a=document.getElementById("arr");
 	}
@@ -52,7 +55,6 @@ function linearsearch()
 	}	
 
 }
-
 function binarysearch()
 {
 	declor();
@@ -75,6 +77,13 @@ function binarysearch()
 	{
 		arr[i].innerHtml=arr[i];
 	}
+	var tage=document.createElement("p");
+	var text=document.createTextNode("After Sorting.");
+	tage.appendChild(text);
+	tage.style.position="absolute";
+	tage.style.bottom="500px";
+	tage.style.fontSize="x-large";
+	document.body.appendChild(tage);
 	var l=0;
 	var h=parseInt(range-1);
 	let count=1;
