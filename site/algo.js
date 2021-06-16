@@ -41,9 +41,11 @@ function linearsearch()
 	var number=document.getElementById("search").value;
 	var range=document.getElementById("range").value;
 	var arr=document.getElementsByClassName("ap");
+	let count=0;
 	for(let i=0;i<range;i++)
 	{
-		setTimeout(()=>{arr[i].style.background="green";setTimeout(()=>{arr[i].style.background="white"; if(arr[i].value==number) arr[i].style.background="green";},i*100)},i*1000);
+		setTimeout(()=>{arr[i].style.background="green";setTimeout(()=>{arr[i].style.background="white"; if(arr[i].value==number) arr[i].style.background="green";},count*100)},count*1000);
+		count++;
 		if(arr[i].value==number)
 		{
 			break;
