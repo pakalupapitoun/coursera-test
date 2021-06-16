@@ -44,7 +44,7 @@ function linearsearch()
 	let count=1;
 	for(let i=0;i<range;i++)
 	{
-		setTimeout(()=>{arr[i].style.background="green";setTimeout(()=>{arr[i].style.background="white"; if(arr[i].value==number) arr[i].style.background="green";},count*1)},count*1000);
+		setTimeout(()=>{arr[i].style.background="green";setTimeout(()=>{arr[i].style.background="white"; if(arr[i].value==number) arr[i].style.background="green";},count*10)},count*100);
 		count++;
 		if(arr[i].value==number)
 		{
@@ -52,7 +52,7 @@ function linearsearch()
 		}
 		if(i==range-1)
 		{
-			setTimeout(()=>{window.alert("Not Found");},i*100);
+			setTimeout(()=>{window.alert("Not Found");},count*100);
 		}		
 	}	
 
