@@ -43,7 +43,7 @@ function linearsearch()
 	var arr=document.getElementsByClassName("ap");
 	for(let i=0;i<range;i++)
 	{
-		setTimeout(()=>{arr[i].style.background="green";setTimeout(()=>{arr[i].style.background="white"; if(arr[i].value==number) arr[i].style.background="green";},i*10)},i*100);
+		setTimeout(()=>{arr[i].style.background="green";setTimeout(()=>{arr[i].style.background="white"; if(arr[i].value==number) arr[i].style.background="green";},i*100)},i*1000);
 		if(arr[i].value==number)
 		{
 			break;
